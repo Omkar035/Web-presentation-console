@@ -246,63 +246,8 @@ require 'dbcon.php';
     </script>
     <script>
         // adding button 
-        class TotalValueRenderer {
-            // gets called once before the renderer is used
-            init(params) {
-                // create the cell
-                this.eGui = document.createElement('div');
-                this.eGui.innerHTML = `<form method="POST">
-            <input class="my-value" type="hidden" value=""></input>
-            <span class="good"></span>
-          </form>
-       `;
-
-                // get references to the elements we want
-                // this.eButton = this.eGui.querySelector('.btn-simple');
-                this.eValue = this.eGui.querySelector('.my-value');
-                this.fValue = this.eGui.querySelector('.good');
 
 
-                this.cellValue = this.getValueToDisplay(params);
-                this.eValue.value = this.cellValue;
-                this.fValue.innerHTML = this.cellValue;
-
-                // set value into cell
-
-
-
-                // add event listener to button
-                this.eventListener = () => alert(`${this.cellValue}`);
-
-            }
-
-            getGui() {
-                return this.eGui;
-            }
-
-            // gets called whenever the cell refreshes
-            refresh(params) {
-                // set value into cell again
-                this.cellValue = this.getValueToDisplay(params);
-                this.eValue.innerHTML = this.cellValue;
-
-                // return true to tell the grid we refreshed successfully
-                return true;
-            }
-
-            // gets called when the cell is removed from the grid
-            destroy() {
-                // do cleanup, remove event listener from button
-                if (this.eButton) {
-                    // check that the button element exists as destroy() can be called before getGui()
-                    this.eButton.removeEventListener('click', this.eventListener);
-                }
-            }
-
-            getValueToDisplay(params) {
-                return params.valueFormatted ? params.valueFormatted : params.value;
-            }
-        }
 
 
         class ActionValueRender {
@@ -311,10 +256,10 @@ require 'dbcon.php';
                 // create the cell
                 this.eGui = document.createElement('div');
                 this.eGui.innerHTML = `
+                
           <span>
-            
-              <a href="https://publisherplex.io/webpresentation/console/data_edit.php?id=${this.cellValue}"><button class="edit btn-2"><i class="fa-solid fa-pen-to-square"></i></button></a>
-              <button class="view btn-2"><i class="fa-solid fa-eye"></i></button>
+              <a href="https://publisherplex.io/webpresentation/console/data_edit.php?id=${params.data.id}"><button class="edit btn-2"><i class="fa-solid fa-pen-to-square"></i></button></a>
+              <a href="https://publisherplex.io/webpresentation/console/data_view.php?id=${params.data.id}"><button class="view btn-2"><i class="fa-solid fa-eye"></i></button></a>
           </span>
        `;
 
@@ -383,7 +328,7 @@ require 'dbcon.php';
                 minWidth: 100,
                 checkboxSelection: checkboxSelection,
                 headerCheckboxSelection: headerCheckboxSelection,
-                cellRenderer: TotalValueRenderer,
+
             },
             { field: 'ad_format' },
             { field: 'template' },
@@ -410,7 +355,7 @@ require 'dbcon.php';
                 }
             },
             headerCheckboxSelection: false,
-            cellRenderer: 'TotalValueRenderer',
+            cellRenderer: 'ActionValueRender',
             cellRendererParams: {
                 checkbox: false,
             },
