@@ -46,7 +46,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 
             .logout {
                 float: right;
-                background: #555;
+                background: tomato;
                 padding: 10px 15px;
                 color: #fff;
                 border-radius: 5px;
@@ -237,9 +237,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
     </head>
 
     <body>
-        <h1>Hello,
-            <?php echo $_SESSION['name']; ?>
-        </h1>
+
         <a class="logout" href="logout.php">Logout</a>
         <div class="headDiv">
             <h2 class="headHead">WEB-PRESENTATION CONSOLE</h2>
@@ -279,11 +277,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                     this.eGui = document.createElement('div');
                     this.eGui.innerHTML = `
                         
-                                                  <span>
-                                                      <a href="./data_edit.php?id=${params.data.id}"><button class="edit btn-2"><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                                      <a href="./data_view.php?id=${params.data.id}"><button class="view btn-2"><i class="fa-solid fa-eye"></i></button></a>
-                                                  </span>
-                                               `;
+                                                                      <span>
+                                                                          <a href="./data_edit.php?id=${params.data.id}"><button class="edit btn-2"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                                                          <a href="./data_view.php?id=${params.data.id}"><button class="view btn-2"><i class="fa-solid fa-eye"></i></button></a>
+                                                                      </span>
+                                                                   `;
 
                     // get references to the elements we want
                     // this.eButton = this.eGui.querySelector('.btn-simple');
