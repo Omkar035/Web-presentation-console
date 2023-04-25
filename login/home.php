@@ -256,8 +256,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                     </select>
                 </div>
                 <div>
-                    <a href="https://publisherplex.io/webpresentation/console/presentation_create.php"><button
-                            class="addData btn-3"><span>Add
+                    <a href="./presentation_create.php"><button class="addData btn-3"><span>Add
                                 Data</span></button></a>
                 </div>
             </div>
@@ -280,11 +279,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                     this.eGui = document.createElement('div');
                     this.eGui.innerHTML = `
                         
-                                      <span>
-                                          <a href="https://publisherplex.io/webpresentation/console/data_edit.php?id=${params.data.id}"><button class="edit btn-2"><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                          <a href="https://publisherplex.io/webpresentation/console/data_view.php?id=${params.data.id}"><button class="view btn-2"><i class="fa-solid fa-eye"></i></button></a>
-                                      </span>
-                                   `;
+                                                  <span>
+                                                      <a href="./data_edit.php?id=${params.data.id}"><button class="edit btn-2"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                                      <a href="./data_view.php?id=${params.data.id}"><button class="view btn-2"><i class="fa-solid fa-eye"></i></button></a>
+                                                  </span>
+                                               `;
 
                     // get references to the elements we want
                     // this.eButton = this.eGui.querySelector('.btn-simple');

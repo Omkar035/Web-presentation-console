@@ -10,11 +10,11 @@ if (isset($_POST['delete_data'])) {
 
     if ($query_run) {
         $_SESSION['message'] = "Data Deleted Successfully";
-        header("Location:index.php");
+        header("Location:home.php");
         exit(0);
     } else {
         $_SESSION['message'] = "Data Not Deleted !...";
-        header("Location:index.php");
+        header("Location:home.php");
         exit(0);
     }
 }
@@ -39,11 +39,11 @@ if (isset($_POST['update_data'])) {
 
     if ($query_run) {
         $_SESSION['message'] = "Presentation Data Updated Successfully";
-        header("Location:index.php");
+        header("Location:home.php");
         exit(0);
     } else {
         $_SESSION['message'] = "Presentation Data Not Updated !..";
-        header("Location:index.php");
+        header("Location:home.php");
         exit(0);
     }
 }
